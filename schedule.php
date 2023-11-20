@@ -15,7 +15,7 @@ $page_title = "Schedule";
     <?php include("layout/header.php"); ?>
 
     <div class="page-content">
-      
+        
     </div>
 </body>
 
