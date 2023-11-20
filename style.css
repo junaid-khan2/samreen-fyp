@@ -1,0 +1,207 @@
+@import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap");
+
+:root {
+  --primary-color: #1398e8;
+  --bg-color: #f2f7ff;
+  --link-color: #00004f;
+}
+
+body {
+  padding: 0px;
+  height: 0px;
+  margin: 0px;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-color);
+  color: #00004f;
+  font-family: "League Spartan", sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: var(--link-color);
+}
+a:hover {
+  color: var(--primary-color);
+}
+
+.btn {
+  text-align: center;
+  padding: 0.5em;
+  border-radius: 10px;
+}
+.btn.btn-primary {
+  background: var(--primary-color);
+  color: #fff;
+}
+
+.page-header {
+  margin: 1em 0em 3em;
+}
+
+.page-header .title {
+  margin-bottom: 0px;
+}
+
+.home-layout header a {
+  transition: all 0.5s;
+}
+
+.home-layout header .logo {
+  width: 3em;
+  height: 3em;
+  scale: 2;
+}
+
+.home-layout header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-inline: 8%;
+  padding-block: 1em;
+}
+
+.home-layout header .menu {
+  display: flex;
+  flex-direction: row;
+  gap: 1em;
+}
+
+.home-layout .page-content {
+  padding-inline: 8%;
+}
+
+/* Home -> Events Page */
+.events-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 10px;
+  margin: 20px auto;
+}
+.event-card {
+  background: #fff;
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 20px;
+  overflow: hidden;
+  text-align: center;
+}
+.event-card .title {
+  margin-block: 0.5em;
+}
+.event-card .cover {
+  width: 100%;
+  height: 10em;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* Dashboard Layout */
+.dashboard-layout {
+  display: flex;
+  height: 100vh;
+  flex-direction: row;
+}
+
+.dashboard-layout .page-content {
+  flex: 1;
+  padding: 2em;
+}
+
+.dashboard-layout .page-header {
+  margin-bottom: 2em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Home -> News */
+.news-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+  margin: 20px auto;
+}
+.news-card {
+  background: #fff;
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+  overflow: hidden;
+  line-height: 1;
+}
+.news-card .title {
+  margin-block: 0.5em;
+}
+.news-card .cover {
+  width: 100%;
+  height: 14em;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* Dashboard Sidebar */
+.dashboard-layout .sidebar {
+  width: 6em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: stretch;
+  background: #fff;
+}
+.dashboard-layout .sidebar .logo {
+  width: 100%;
+  height: 5em;
+}
+
+.dashboard-layout .sidebar .menu {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  margin-top: 2em;
+  gap: 0.5em;
+  padding-inline: 0.5em;
+}
+
+.dashboard-layout .sidebar .menu a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 1em;
+  border-radius: 10px;
+  color: var(--link-color);
+  text-decoration: none;
+}
+
+.dashboard-layout .sidebar .menu a[data-active="true"] {
+  background: var(--primary-color);
+  color: #fff;
+}
+.dashboard-layout .sidebar .menu a[data-active="true"] img {
+  fill: var(--primary-color); /* Set the fill color */
+}
+
+/* Auth Layout */
+
+body.auth-layout {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+}
+
+.auth-layout .login-card {
+  width: 30em;
+}
+
+.auth-layout .login-card img {
+  width: 10em;
+  height: 10em;
+}
