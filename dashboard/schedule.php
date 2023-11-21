@@ -40,6 +40,12 @@ $teams = $database->query("SELECT * FROM teams WHERE event_id='".$event_id."' OR
                 a
                 Match</button>
         </div>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="./events.php">Events</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Schedule</li>
+            </ol>
+        </nav>
         <table class="table">
             <thead>
                 <th>Date/Time</th>

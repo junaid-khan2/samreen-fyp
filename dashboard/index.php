@@ -5,9 +5,14 @@ include("../init.php");
 /// Set Page Title
 $page_title = "Login - Dashboard";
 
+if($_SESSION['loggedin'] == true){
+    header("Location: ./events.php");
+}
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $username = $_POST['username'] ?? '';
-    $password = $_POST['password'] ?? '';
+     $username = $_POST['username'] ?? '';
+     $password = $_POST['password'] ?? '';
+    
     $stmt = $database->prepare("SELECT id, username, password FROM admins WHERE username = ? and password = ?");
     $stmt->execute([$username, $password]);
     $user = $stmt->fetch();
@@ -35,7 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <img src="../assets/logo.svg" class="text-center" />
             </div>
             <h4 class="text-center mb-4">Admin Dashboard Login</h4>
-            <form action="./login.php" method="POST">
+            <form action="./index.php" method="POST">
                 <div class="form-group">
                     <label>Username</label>
                     <input type="text" name="username" class="form-control">

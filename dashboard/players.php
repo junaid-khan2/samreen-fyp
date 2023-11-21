@@ -23,7 +23,14 @@ $teams = $database->query("SELECT * FROM teams WHERE event_id='".$event_id."' OR
     <div class="page-content">
         <div class="page-header">
             <h2 class="page-title">Players</h2>
+            
         </div>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="./events.php">Events</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Players</li>
+            </ol>
+        </nav>
         <table class="table">
             <thead>
                 <th>ID#</th>

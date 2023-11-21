@@ -81,13 +81,24 @@ $page_title = "Sports Events";
                 <a href="/" class="d-flex align-items-center mb-3 link-dark text-decoration-none">
                   <img src="./assets/logo.svg" alt="">
                 </a>
-               <div class="row">
-                <ul class="list-unstyled d-flex">
-                    <li class="ms-3"><a class="link-dark" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"></use></svg></a></li>
-                    <li class="ms-3"><a class="link-dark" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"></use></svg></a></li>
-                    <li class="ms-3"><a class="link-dark" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"></use></svg></a></li>
-                  </ul>
-               </div>
+                <ul class="list-unstyled d-flex flex-row justify-content-center">
+                  <li>
+                    <a style="color: var(--primary-color);" class=" px-2" href="#!">
+                      <i class="fab fa-2x fa-facebook-square"></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a style="color: var(--primary-color);" class=" px-2" href="#!">
+                      <i class="fab fa-2x fa-instagram"></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a style="color: var(--primary-color);" class=" ps-2" href="#!">
+                      <i class="fab fa-2x fa-youtube"></i>
+                    </a>
+                  </li>
+                </ul>
+
               </div>
           
               <div class="col">

@@ -12,9 +12,9 @@ session_start();
 $currentUri = $_SERVER['REQUEST_URI'];
 $currentBase = basename($currentUri);
 $currentDir = dirname($currentUri);
-if ($currentBase !== 'login.php' && strpos($currentDir, '/dashboard') !== false) {
+if ($currentBase !== 'index.php' && strpos($currentDir, '/dashboard') !== false) {
     if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
-        header("Location: ".BASE_URL."/dashboard/login.php");
+        header("Location: ".BASE_URL."/dashboard/index.php");
         exit;
     }
 }
