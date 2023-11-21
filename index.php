@@ -3,18 +3,41 @@
 
 include("./init.php");
 
-$page_title = "Events";
+$page_title = "Sports Events";
 ?>
 
 
 <html>
 
 <?php include("layout/head.php"); ?>
-
+<style>
+    .menu a{
+        color: white;
+    }
+    .menu a:hover{
+        color: var(--primary-color);
+    }
+    .hero{
+        height: 80vh;
+         background-image: url('./assets/bg-hero.png'); 
+         background-repeat: no-repeat; background-size: cover;
+    }
+</style>
 <body class="home-layout">
-    <?php include("layout/header.php"); ?>
-
+    
+    <section>
+        <div class="container-fluid hero"  >
+            <?php include("layout/header.php"); ?>
+           <div class="row mt-5 p-5">
+            <div class="col-6 mt-5">
+                <h3 class="h3 text-light">Get ready to score big with our <br> comprehensive Coverage of all the <br> latest sports news and events</h3>
+                <button class="btn btn-primary">Events -></button>
+            </div>
+           </div>
+        </div>
+        </section>
     <div class="page-content">
+       
         <section style="padding: 5em">
             <div class="row">
                 <div class="col-md-6">
@@ -50,7 +73,75 @@ $page_title = "Events";
                 </div>
             </div>
         </section>
+
+
+        <div class="container">
+            <footer class="row row-cols-5 py-5 my-5 border-top">
+              <div class="col">
+                <a href="/" class="d-flex align-items-center mb-3 link-dark text-decoration-none">
+                  <img src="./assets/logo.svg" alt="">
+                </a>
+               <div class="row">
+                <ul class="list-unstyled d-flex">
+                    <li class="ms-3"><a class="link-dark" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"></use></svg></a></li>
+                    <li class="ms-3"><a class="link-dark" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"></use></svg></a></li>
+                    <li class="ms-3"><a class="link-dark" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"></use></svg></a></li>
+                  </ul>
+               </div>
+              </div>
+          
+              <div class="col">
+          
+              </div>
+          
+              <div class="col">
+                <h5>Circket</h5>
+                <ul class="nav flex-column">
+                  <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
+                  <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
+                  <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pricing</a></li>
+                  <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
+                  <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
+                </ul>
+              </div>
+          
+              <div class="col">
+                <h5>Football</h5>
+                <ul class="nav flex-column">
+                  <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
+                  <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
+                  <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pricing</a></li>
+                  <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
+                  <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
+                </ul>
+              </div>
+          
+              <div class="col">
+                <h5>Badmintan</h5>
+                <ul class="nav flex-column">
+                  <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
+                  <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
+                  <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pricing</a></li>
+                  <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
+                  <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
+                </ul>
+              </div>
+
+              <div class="col">
+                <h5>PUBG</h5>
+                <ul class="nav flex-column">
+                  <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
+                  <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
+                  <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pricing</a></li>
+                  <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
+                  <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
+                </ul>
+              </div>
+            </footer>
+          </div>
     </div>
+
+
 </body>
 
 </html>

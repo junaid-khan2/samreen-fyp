@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <title>Event Card</title>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-3 col-lg-3 col-sm-6">
+                <div class="card">
+                    <div class="row p-3">
+                        <div class="col-12">
+                            <h2 class="h4 text-muted">Event Name</h2>
+                        </div>
+                        <div class="col-12">
+                            <div class="row">
+                                <div class="col">
+        
+                                    <h6 class="text-right">Date: <span id="date">2023-11-22 22:45:00</span></h6>
+                                </div>
+                                <div class="col">
+                                    
+                                    <h6 class="text-right">Venue: <span id="venue">Hello</span></h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div class="button-container mt-3">
+                        <ul class="nav nav-pills">
+                            <li class="nav-item">
+                                <a class="nav-link active" id="teamATab" data-toggle="pill" href="#teamA">Team A</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="teamBTab" data-toggle="pill" href="#teamB">Team B</a>
+                            </li>
+                        </ul>
+                    </div>
+        
+                    <div class="tab-content mt-3">
+                        <div class="tab-pane fade show active" id="teamA">
+                            <h3>Team A Players</h3>
+                            <!-- Populate with Team A players dynamically -->
+                            <p>Player 1, Player 2, Player 3</p>
+                        </div>
+                        <div class="tab-pane fade" id="teamB">
+                            <h3>Team B Players</h3>
+                            <!-- Populate with Team B players dynamically -->
+                            <p>Player A, Player B, Player C</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

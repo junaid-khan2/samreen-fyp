@@ -21,16 +21,33 @@ $news = $news->fetchAll();
         <div class="page-header">
             <h1 class="page-title">News</h1>
         </div>
-        <div class="news-grid">
+        <div class="row">
             <?php foreach ($news as $n): ?>
-            <div class="news-card">
+               <div class="col-md-6 col-lg-6 col-sm-6 border">
+                    <div class="row">
+                        <div class="col-6 p-1">
+                            <a href="./news_view.php?id=<?= $n["id"]; ?>">
+                                <img class="cover" height="200" src="./assets/covers/<?= $n["cover"]; ?>" />
+                            </a>
+                        </div>
+                        <div class="col-6 mt-4">
+                            <h5 class="h5   ">
+                                <a href="./news_view.php?id=<?= $n["id"]; ?>">
+                                <?= $n["title"] ?>
+                                </a>
+                            </h5>
+                            <p><?= $n["description"] ?></p>
+                        </div>
+                    </div>
+               </div>
+            <!-- <div class="news-card">
                 <img class="cover" src="./assets/covers/<?= $n["cover"]; ?>" />
                 <h5 class="title">
                     <?= $n["title"] ?>
                 </h5>
                 <p><?= $n["description"] ?></p>
                 <a href="./news_view.php?id=<?= $n["id"]; ?>" class="btn btn-sm btn-primary">Read More</a>
-            </div>
+            </div> -->
             <?php endforeach; ?>
         </div>
     </div>
