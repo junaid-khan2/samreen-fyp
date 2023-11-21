@@ -30,6 +30,13 @@ $teams = $database->query("SELECT * FROM teams WHERE event_id='".$event_id."' OR
                 <li class="breadcrumb-item active" aria-current="page">Teams</li>
             </ol>
         </nav>
+           <!-- Bootstrap Alert for Success -->
+           <div class="alert alert-success alert-dismissible fade show" role="alert" id="success-alert" style="display: none;">
+            <strong>Success!</strong> Team created successfully.
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
         <table class="table">
             <thead>
                 <th>Name</th>
@@ -131,9 +138,10 @@ $teams = $database->query("SELECT * FROM teams WHERE event_id='".$event_id."' OR
 
       
         // Event handler for the Save button
-        $('#saveTeamBtn').on('click', function () {
+        $('#saveTeamBtn').click( function () {
             // Validate the form before submitting
-            if (validateForm()) {
+           
+                
                 $.ajax({
                     type: "POST",
                     url: $("#createTeamForm").attr("action"),
@@ -143,6 +151,7 @@ $teams = $database->query("SELECT * FROM teams WHERE event_id='".$event_id."' OR
                     processData: false,
                     dataType: "json", // Expect JSON response from the server
                     success: function (response) {
+                        
                         // Check for validation errors in the response
                         if (response.success) {
                             // If creation is successful, close the modal or perform any other actions
@@ -176,28 +185,10 @@ $teams = $database->query("SELECT * FROM teams WHERE event_id='".$event_id."' OR
                         console.error("AJAX request failed:", status, error);
                     }
                 });
-            }
+            
         });
 
-        // Function to validate the form
-        function validateForm() {
-            // Reset any previous error messages
-            $('#nameError').text('');
-
-            // Get the input values
-            var name = $('#name').val();
-
-            // Validate the Name field
-            if (name.trim() === '') {
-                $('#nameError').text('Name is required.');
-                return false;
-            }
-
-            // Add additional validation rules as needed
-
-            // Form is valid
-            return true;
-        }
+       
  
     </script>
 </body>

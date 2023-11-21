@@ -71,27 +71,39 @@ $events = $database->query($sql)->fetchAll();
             </tbody>
         </table>
     </div>
-   <!--Create Modal -->
-    <div class="modal fade" id="create-team" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+   
+    <!-- Modal -->
+    <div class="modal fade" id="create-event" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
-                <form id="createTeamForm" action="./actions/team_create.php?event_id=<?= $_GET["event_id"] ?>" method="POST">
+                <form id="createEventForm" action="./actions/event_create.php" method="POST" enctype="multipart/form-data">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Create new Team</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Create new Event</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
                         <div class="form-group">
-                            <label for="name">Name</label>
-                            <input type="text" name="name" id="name" class="form-control">
-                            <div id="nameError" class="invalid-feedback"></div>
+                            <label>Title</label>
+                            <input type="text" name="title" id="title" class="form-control">
+                            <div id="title-Error" class="invalid-feedback"></div>
+                        </div>
+                        <div class="form-group">
+                            <label>Description</label>
+                            <textarea rows="4" type="text" name="description" id="description" class="form-control"></textarea>
+                            <div id="description-Error" class="invalid-feedback"></div>
+                        </div>
+                        <div class="form-group">
+                            <label>Cover</label>
+                            <input type="file" name="cover" id="cover" class="form-control">
+                            <div id="cover-Error" class="invalid-feedback"></div>
                         </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                        <button type="button" class="btn btn-primary" id="saveTeamBtn">Save</button>
+                        <button type="button" id="createEventBtn" class="btn btn-primary">Save</button>
                     </div>
                 </form>
             </div>
@@ -174,112 +186,47 @@ $events = $database->query($sql)->fetchAll();
             processData: false,
             dataType: "json", // Expect JSON response from the server
             success: function (response) {
-                // Check for validation errors in the response
-                if (response.success) {
-                    // If creation is successful, close the modal or perform any other actions
-                    $("#create-event").modal("hide");
-                    // You might want to reload the events table or do other actions here
-                    
-                    $("#success-alert").show();
-                    // Reload the page after 3 seconds
-                    setTimeout(function () {
-                        location.reload();
-                    }, 3000)
-                } else {
-                    // Clear previous error messages and classes
-                    $(".form-control").removeClass("is-invalid");
-                    $(".invalid-feedback").empty();
+                // Check for valid JSON
+             
+                try {
+                  
+                    if (response.success) {
+                        // If creation is successful, close the modal or perform any other actions
+                        $("#create-event").modal("hide");
+                        // You might want to reload the events table or do other actions here
+                        $("#success-alert").show();
+                        // Reload the page after 3 seconds
+                        setTimeout(function () {
+                            location.reload();
+                        }, 3000);
+                    } else {
+                        // Clear previous error messages and classes
+                        $(".form-control").removeClass("is-invalid");
+                        $(".invalid-feedback").empty();
 
-                    // Display validation errors next to corresponding form fields
-                    $.each(response.errors, function (key, value) {
-                        if (value != null) {
-                            $("#" + key).addClass("is-invalid");
-                            $("#" + key + "-error").html(value);
-                            $("#" + key + "-error").show(); // Show the invalid-feedback div
-                        }
-                    });
+                        // Display validation errors next to corresponding form fields
+                        $.each(response.errors, function (key, value) {
+                            if (value != null) {
+                                $("#" + key).addClass("is-invalid");
+                                $("#" + key + "-Error").html(value);
+                                $("#" + key + "-Error").show(); // Show the invalid-feedback div
+                            }
+                        });
 
-                    // Log the error messages to the console
-                    console.error(response.errors);
+                        // Log the error messages to the console
+                        console.error(response.errors);
+                    }
+                } catch (e) {
+                    // Log parsing error
+                    console.error('Invalid JSON response:', response);
                 }
             },
             error: function (xhr, status, error) {
-                console.error("AJAX request failed:", status, error);
+                // Log AJAX request failure
+                console.error('AJAX request failed:', status, error);
             }
         });
     });
-
-           // Event handler for the Save button
-           $('#saveTeamBtn').on('click', function () {
-            // Validate the form before submitting
-            if (validateForm()) {
-                $.ajax({
-                    type: "POST",
-                    url: $("#createTeamForm").attr("action"),
-                    data: new FormData($("#createTeamForm")[0]),
-                    contentType: false,
-                    cache: false,
-                    processData: false,
-                    dataType: "json", // Expect JSON response from the server
-                    success: function (response) {
-                        // Check for validation errors in the response
-                        if (response.success) {
-                            // If creation is successful, close the modal or perform any other actions
-                            $("#create-team").modal("hide");
-                            // You might want to reload the teams table or do other actions here
-
-                            $("#success-alert").show();
-                            // Reload the page after 3 seconds
-                            setTimeout(function () {
-                                location.reload();
-                            }, 3000)
-                        } else {
-                            // Clear previous error messages and classes
-                            $(".form-control").removeClass("is-invalid");
-                            $(".invalid-feedback").empty();
-
-                            // Display validation errors next to corresponding form fields
-                            $.each(response.errors, function (key, value) {
-                                if (value != null) {
-                                    $("#" + key).addClass("is-invalid");
-                                    $("#" + key + "Error").html(value);
-                                    $("#" + key + "Error").show(); // Show the invalid-feedback div
-                                }
-                            });
-
-                            // Log the error messages to the console
-                            console.error(response.errors);
-                        }
-                    },
-                    error: function (xhr, status, error) {
-                        console.error("AJAX request failed:", status, error);
-                    }
-                });
-            }
-        });
-
-        // Function to validate the form
-        function validateForm() {
-            // Reset any previous error messages
-            $('#nameError').text('');
-
-            // Get the input values
-            var name = $('#name').val();
-
-            // Validate the Name field
-            if (name.trim() === '') {
-                $('#nameError').text('Name is required.');
-                return false;
-            }
-
-            // Add additional validation rules as needed
-
-            // Form is valid
-            return true;
-        }
-   
-
-
     </script>
 </body>
 </html>

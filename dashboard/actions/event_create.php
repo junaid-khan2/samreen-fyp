@@ -1,6 +1,8 @@
 <?php
 include("../../init.php");
 
+header('Content-Type: application/json');
+
 try {
     $errors = [];
 
@@ -24,7 +26,9 @@ try {
     // Check if there are any validation errors
     if (!empty($errors)) {
         // Validation errors, return the error response
+        // Return a success response
         echo json_encode(['success' => false, 'errors' => $errors]);
+
         exit;
     }
 
@@ -41,7 +45,7 @@ try {
     $stmt->execute([':title' => $title, ':description' => $description, ':cover' => $cover]);
 
     // Return a success response
-    echo json_encode(['success' => true]);
+    echo json_encode(['success' => true, 'message' => 'success']);
 } catch (PDOException $e) {
     // Handling PDO exceptions
     echo json_encode(['success' => false, 'errors' => ['message' => 'Database error: ' . $e->getMessage()]]);
