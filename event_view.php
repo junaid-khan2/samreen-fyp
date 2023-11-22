@@ -41,7 +41,7 @@ $news = $news->fetchAll();
               </nav>
                <!-- Bootstrap Alert for Success -->
             <div class="alert alert-success alert-dismissible fade show" role="alert" id="success-alert" style="display: none;">
-                <strong>Success!</strong> Event created successfully.
+                <strong>Success!</strong> You are Register successfully.
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
