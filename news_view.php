@@ -19,8 +19,15 @@ $news = $news->fetch();
     <?php include("layout/header.php"); ?>
     <div class="page-content">
         <div class="page-header" style="margin-bottom: 1em">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="./news.php">News</a></li>
+                    <li class="breadcrumb-item active" aria-current="page"><?= $news["title"] ?></li>
+                </ol>
+            </nav>
             <h1 class="page-title"><?= $news["title"] ?></h1>
             <p>Published: <?= $news["timestamp"] ?></p>
+           
         </div>
         <div class="card">
             <div class="card-body">
