@@ -69,7 +69,10 @@ $schedules = $schedules->fetchAll(PDO::FETCH_ASSOC);
 
                         <div class="tab-content mt-3">
                             <div class="tab-pane fade show active" id="teamA<?= $schedule['schedule_id']; ?>">
-                                <p><?= $schedule['team_a_players']; ?></p>
+                            <?php $teamAPlayers = explode(',', $schedule['team_a_players']); ?>
+                                <?php foreach ($teamAPlayers as $player) : ?>
+                                    <span><?= $player?></span>
+                                <?php endforeach; ?>
                             </div>
                             <div class="tab-pane fade" id="teamB<?= $schedule['schedule_id']; ?>">
                                 <p><?= $schedule['team_b_players']; ?></p>
