@@ -23,7 +23,7 @@ $news = $news->fetchAll();
         </div>
         <div class="row">
             <?php foreach ($news as $n): ?>
-               <div class="col-md-6 col-lg-6 col-sm-6 border">
+               <div class="col-md-4 col-lg-4 col-sm-4 border m-1">
                     <div class="row">
                         <div class="col-6 p-1">
                             <a href="./news_view.php?id=<?= $n["id"]; ?>">

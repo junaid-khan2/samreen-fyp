@@ -68,12 +68,32 @@ $schedules = $schedules->fetchAll(PDO::FETCH_ASSOC);
                         </div>
 
                         <div class="tab-content mt-3">
+                            <!-- Inside the loop for team A players -->
                             <div class="tab-pane fade show active" id="teamA<?= $schedule['schedule_id']; ?>">
-                                <p><?= $schedule['team_a_players']; ?></p>
+                                <?php $teamAPlayers = explode(',', $schedule['team_a_players']); ?>
+                                <div class="row">
+                                <?php foreach ($teamAPlayers as $player) : ?>
+                                    <div class="col-3">
+                                        <a style="color: var(--primary-color);" herf="#"><?= $player; ?></a>
+                                        <!-- Add additional styling or information for each player -->
+                                    </div>
+                                <?php endforeach; ?>
+                                </div>
                             </div>
+
+                            <!-- Inside the loop for team B players -->
                             <div class="tab-pane fade" id="teamB<?= $schedule['schedule_id']; ?>">
-                                <p><?= $schedule['team_b_players']; ?></p>
+                                <?php $teamBPlayers = explode(',', $schedule['team_b_players']); ?>
+                                <div class="row">
+                                <?php foreach ($teamBPlayers as $player) : ?>
+                                    <div class="col-3">
+                                        <a style="color: var(--primary-color);" herf="#"><?= $player; ?></a>
+                                        <!-- Add additional styling or information for each player -->
+                                    </div>
+                                <?php endforeach; ?>
+                                </div>
                             </div>
+
                         </div>
                     </div>
                 </div>
