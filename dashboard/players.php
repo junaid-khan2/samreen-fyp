@@ -42,31 +42,30 @@ $teams = $database->query("SELECT * FROM teams WHERE event_id='".$event_id."' OR
                 <th>Actions</th>
             </thead>
             <tbody>
-                <?php foreach ($players as $player): ?>
+            <?php foreach ($players as $player): ?>
                 <tr data-id="<?= $player["id"] ?>">
-                    <td><?= $player["id"]; ?>
-                    </td>
+                    <td><?= $player["id"]; ?></td>
                     <td><?= $player["timestamp"] ?></td>
                     <td><?= $player["name"] ?></td>
                     <td><?= $player["email"] ?></td>
                     <td><?= $player["phone_number"] ?></td>
                     <td>
                         <select class="form-control" name="team">
+                            <option value="" <?= empty($player["team_id"]) ? 'selected disabled' : ''; ?>>Select Team</option>
                             <?php foreach ($teams as $team): ?>
-                            <option value="<?= $team["id"] ?>"
-                                <?= ($team["id"] == $player["team_id"]) ? 'selected' : '' ?>>
-                                <?= $team["name"] ?>
-                            </option>
+                                <option value="<?= $team["id"] ?>" <?= ($team["id"] == $player["team_id"]) ? 'selected' : '' ?>>
+                                    <?= $team["name"] ?>
+                                </option>
                             <?php endforeach; ?>
                         </select>
                     </td>
-
                     <td class="actions">
                         <a class="text-danger"
                             href="./actions/player_delete.php?id=<?= $player["id"] ?>&event_id=<?= $event_id ?>">Delete</a>
                     </td>
                 </tr>
-                <?php endforeach; ?>
+            <?php endforeach; ?>
+
             </tbody>
         </table>
     </div>

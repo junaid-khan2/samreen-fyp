@@ -10,8 +10,16 @@ SELECT
     evt.title AS event_title,
     team_a.name AS team_a_name,
     team_b.name AS team_b_name,
-    GROUP_CONCAT(players_a.name) AS team_a_players,
-    GROUP_CONCAT(players_b.name) AS team_b_players,
+    (
+        SELECT GROUP_CONCAT(players_a.name) 
+        FROM players players_a 
+        WHERE players_a.team_id = team_a.id AND players_a.event_id = sch.event_id
+    ) AS team_a_players,
+    (
+        SELECT GROUP_CONCAT(players_b.name) 
+        FROM players players_b 
+        WHERE players_b.team_id = team_b.id AND players_b.event_id = sch.event_id
+    ) AS team_b_players,
     MIN(sch.date) AS min_date,
     sch.venue
 FROM
@@ -19,8 +27,6 @@ FROM
 JOIN events evt ON sch.event_id = evt.id
 JOIN teams team_a ON sch.team_a = team_a.id
 JOIN teams team_b ON sch.team_b = team_b.id
-JOIN players players_a ON sch.team_a = players_a.team_id AND sch.event_id = players_a.event_id
-JOIN players players_b ON sch.team_b = players_b.team_id AND sch.event_id = players_b.event_id
 GROUP BY
     sch.id, sch.team_a, sch.team_b, sch.venue
 ORDER BY
@@ -28,6 +34,7 @@ ORDER BY
 ");
 
 $schedules = $schedules->fetchAll(PDO::FETCH_ASSOC);
+
 ?>
 
 <html>
