@@ -1,18 +1,19 @@
 <?php
-
 include("../init.php");
 
 /// Set Page Title
 $page_title = "Login - Dashboard";
 
-if($_SESSION['loggedin'] == true){
+if(isset($_SESSION['loggedin'])){
     header("Location: ./events.php");
 }
 
+$invalidLogin = false;
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-     $username = $_POST['username'] ?? '';
-     $password = $_POST['password'] ?? '';
-    
+    $username = $_POST['username'] ?? '';
+    $password = $_POST['password'] ?? '';
+
     $stmt = $database->prepare("SELECT id, username, password FROM admins WHERE username = ? and password = ?");
     $stmt->execute([$username, $password]);
     $user = $stmt->fetch();
@@ -22,9 +23,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION['id'] = $user['id'];
         $_SESSION['username'] = $user['username'];
         header("Location: ./events.php");
-    }else{
-        echo "Invlid username and password";
-        exit;
+    } else {
+        $invalidLogin = true;
     }
 }
 ?>
@@ -40,6 +40,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <img src="../assets/logo.svg" class="text-center" />
             </div>
             <h4 class="text-center mb-4">Admin Dashboard Login</h4>
+
+            <?php if ($invalidLogin) : ?>
+                <div class="alert alert-danger" role="alert">
+                    Invalid username and password. Please try again.
+                </div>
+            <?php endif; ?>
+
             <form action="./index.php" method="POST">
                 <div class="form-group">
                     <label>Username</label>

@@ -39,6 +39,13 @@ $news = $news->fetchAll();
                   <li class="breadcrumb-item active" aria-current="page"><?= $event["title"]; ?></li>
                 </ol>
               </nav>
+               <!-- Bootstrap Alert for Success -->
+            <div class="alert alert-success alert-dismissible fade show" role="alert" id="success-alert" style="display: none;">
+                <strong>Success!</strong> You are Register successfully.
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
             <div class="row align-items-center">
                 <div class="col-md-6">
                     
@@ -128,6 +135,8 @@ aria-hidden="true">
                     if (response.success) {
                         // If registration is successful, close the modal or perform any other actions
                         $("#event-register").modal("hide");
+                        // You might want to reload the events table or do other actions here
+                        $("#success-alert").show();
                     } else {
                         // Clear previous error messages and classes
                         $(".form-control").removeClass("is-invalid");

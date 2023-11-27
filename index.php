@@ -19,7 +19,7 @@ $page_title = "Sports Events";
     }
     .hero{
         height: 80vh;
-         background-image: url('./assets/bg-hero.png'); 
+         background-image: url('./assets/bg-hero1.png'); 
          background-repeat: no-repeat; background-size: cover;
     }
 </style>
@@ -31,7 +31,7 @@ $page_title = "Sports Events";
            <div class="row mt-5 p-5">
             <div class="col-6 mt-5">
                 <h3 class="h3 text-light">Get ready to score big with our <br> comprehensive Coverage of all the <br> latest sports news and events</h3>
-                <button class="btn btn-primary">Events -></button>
+                <a href="./events.php" class="btn btn-primary">Events -></a>
             </div>
            </div>
         </div>
@@ -83,18 +83,23 @@ $page_title = "Sports Events";
                 </a>
                 <ul class="list-unstyled d-flex flex-row justify-content-center">
                   <li>
-                    <a style="color: var(--primary-color);" class=" px-2" href="#!">
-                      <i class="fab fa-2x fa-facebook-square"></i>
+                    <a  class=" px-2" href="https://www.facebook.com/" target="_blank">
+                      <i class="fab fa-2x fa-facebook"></i>
                     </a>
                   </li>
                   <li>
-                    <a style="color: var(--primary-color);" class=" px-2" href="#!">
+                    <a class=" px-2" href="https://www.instagram.com/" target="_blank">
                       <i class="fab fa-2x fa-instagram"></i>
                     </a>
                   </li>
                   <li>
-                    <a style="color: var(--primary-color);" class=" ps-2" href="#!">
+                    <a  class=" ps-2" href="https://www.youtube.com/" target="_blank">
                       <i class="fab fa-2x fa-youtube"></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a  class=" ps-2 mx-1" href="tel:+923110653748" target="_blank">
+                      <i class="fa-2x fas fa-phone"></i>
                     </a>
                   </li>
                 </ul>
@@ -108,44 +113,41 @@ $page_title = "Sports Events";
               <div class="col">
                 <h5>Circket</h5>
                 <ul class="nav flex-column">
-                  <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
-                  <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
-                  <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pricing</a></li>
-                  <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
-                  <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
+                  <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Zakariya khan</a></li>
+                  <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Ali khan</a></li>
+                  <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Younus Fahad</a></li>
+                  <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">SHahid ALi</a></li>
                 </ul>
               </div>
           
               <div class="col">
                 <h5>Football</h5>
                 <ul class="nav flex-column">
-                  <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
-                  <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
-                  <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pricing</a></li>
-                  <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
-                  <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
+                  <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Taimur Akhtar</a></li>
+                  <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Saood Faysal</a></li>
+                  <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Arbaz Ali</a></li>
+                  <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Shehryar</a></li>
+                  <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Shehryar</a></li>
                 </ul>
               </div>
           
               <div class="col">
-                <h5>Badmintan</h5>
+                <h5>Badminton</h5>
                 <ul class="nav flex-column">
-                  <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
-                  <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
-                  <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pricing</a></li>
-                  <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
-                  <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
+                  <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Majid khan</a></li>
+                  <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Abdur-rehman</a></li>
+                  <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Arbaz Ali</a></li>
+                  <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Shehryar</a></li>
+                  <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Ilyas</a></li>
                 </ul>
               </div>
 
               <div class="col">
                 <h5>PUBG</h5>
                 <ul class="nav flex-column">
-                  <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
-                  <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
-                  <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pricing</a></li>
-                  <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
-                  <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
+                  <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Ali Shahid</a></li>
+                  <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Adnan ali</a></li>
+                  <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Ahmed</a></li>
                 </ul>
               </div>
             </footer>

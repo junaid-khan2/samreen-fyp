@@ -5,15 +5,32 @@ include("./init.php");
 /// Set Page Title
 $page_title = "News";
 
-/// Fetch All Events from database
+/// Fetch All Events from the database
 $news = $database->query("SELECT * FROM news ORDER BY timestamp DESC");
 $news = $news->fetchAll();
-
 
 ?>
 
 <html>
-<?php include("layout/head.php"); ?>
+<head>
+    <?php include("layout/head.php"); ?>
+    <style>
+        /* Custom styles for the card */
+        .card {
+            margin-bottom: 20px;
+        }
+
+        .card-img-top {
+            object-fit: cover;
+            height: 200px;
+        }
+
+        .card-body {
+            height: 200px;
+            overflow: hidden;
+        }
+    </style>
+</head>
 
 <body class="home-layout">
     <?php include("layout/header.php"); ?>
@@ -23,31 +40,22 @@ $news = $news->fetchAll();
         </div>
         <div class="row">
             <?php foreach ($news as $n): ?>
-               <div class="col-md-6 col-lg-6 col-sm-6 border">
-                    <div class="row">
-                        <div class="col-6 p-1">
-                            <a href="./news_view.php?id=<?= $n["id"]; ?>">
-                                <img class="cover" height="200" src="./assets/covers/<?= $n["cover"]; ?>" />
-                            </a>
+                <div class="col-md-4 col-lg-4 col-sm-6">
+                    <a href="./news_view.php?id=<?= $n["id"]; ?>" class="text-decoration-none">
+                        <div class="container">
+                            <div class="card">
+                                <img src="./assets/covers/<?= $n["cover"]; ?>" class="card-img-top" alt="Card Image">
+                                <div class="card-body">
+                                    <h5 class="card-title"><?= $n["title"] ?></h5>
+                                    <p class="card-text text-muted"><?= $n["description"] ?></p>
+                                    <?php if (strlen($n["description"]) > 200): ?>
+                                        <a href="./news_view.php?id=<?= $n["id"]; ?>" class="btn btn-link">See more</a>
+                                    <?php endif; ?>
+                                </div>
+                            </div>
                         </div>
-                        <div class="col-6 mt-4">
-                            <h5 class="h5   ">
-                                <a href="./news_view.php?id=<?= $n["id"]; ?>">
-                                <?= $n["title"] ?>
-                                </a>
-                            </h5>
-                            <p><?= $n["description"] ?></p>
-                        </div>
-                    </div>
-               </div>
-            <!-- <div class="news-card">
-                <img class="cover" src="./assets/covers/<?= $n["cover"]; ?>" />
-                <h5 class="title">
-                    <?= $n["title"] ?>
-                </h5>
-                <p><?= $n["description"] ?></p>
-                <a href="./news_view.php?id=<?= $n["id"]; ?>" class="btn btn-sm btn-primary">Read More</a>
-            </div> -->
+                    </a>
+                </div>
             <?php endforeach; ?>
         </div>
     </div>
