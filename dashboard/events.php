@@ -48,24 +48,23 @@ $events = $database->query($sql)->fetchAll();
         <table class="table">
             <thead>
                 <th>Name</th>
-                <th>Created At</th>
+                <th>Action</th>
                 <th>Teams</th>
                 <th>Players</th>
-                <th>Actions</th>
             </thead>
             <tbody>
                 <?php foreach ($events as $event): ?>
                 <tr>
                     <td><?= $event["title"] ?></td>
-                    <td><?= $event["timestamp"] ?></td>
-                    <td><?= $event["total_teams"] ?></td>
-                    <td><?= $event["total_players"] ?></td>
                     <td class="actions">
                     <a href="./players.php?event_id=<?= $event["id"] ?>">Players</a> |
                     <a href="./teams.php?event_id=<?= $event["id"] ?>">Teams</a> |
                     <a href="./schedule.php?event_id=<?= $event["id"] ?>">Schedule</a> |
                     <a class="text-danger delete-event" data-event-id="<?= $event["id"] ?>" >Delete</a>
                     </td>
+                    <td><?= $event["total_teams"] ?></td>
+                    <td><?= $event["total_players"] ?></td>
+                   
                 </tr>
                 <?php endforeach; ?>
             </tbody>
